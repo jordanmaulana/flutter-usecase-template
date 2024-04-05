@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_usecase_template/configs/constants.dart';
+
+import 'constants.dart';
 
 /// Defines every variables that change between testing build and production build.
 /// e.g.: Api URL, Sentry DSN, In App Purchase ids, etc.

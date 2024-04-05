@@ -1,10 +1,10 @@
-import 'package:flutter_usecase_template/apps/profile/repo/profile_repo.dart';
-import 'package:flutter_usecase_template/apps/profile/usecases/get_profile_usecase.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'api/dio_client.dart';
 import 'apps/auth/usecases/login_usecase.dart';
+import 'apps/profile/repo/profile_repo.dart';
+import 'apps/profile/usecases/get_profile_usecase.dart';
 import 'configs/flavors.dart';
 
 /// Inject all dependencies

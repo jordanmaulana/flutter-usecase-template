@@ -1,11 +1,11 @@
-import 'package:flutter_usecase_template/apps/profile/repo/profile_repo.dart';
-import 'package:flutter_usecase_template/configs/constants.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../api/dio_client.dart';
 import '../../../base/resource.dart';
 
+import '../../../configs/constants.dart';
 import '../../profile/models/profile.dart';
+import '../../profile/repo/profile_repo.dart';
 import '../views/login/login_page.dart';
 
 class LoginUsecase {

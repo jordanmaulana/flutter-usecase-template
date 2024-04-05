@@ -1,7 +1,6 @@
-import 'package:flutter_usecase_template/apps/profile/repo/profile_repo.dart';
-
 import '../../../base/resource.dart';
 import '../models/profile.dart';
+import '../repo/profile_repo.dart';
 
 class GetProfileUsecase {
   final ProfileRepo _repo;

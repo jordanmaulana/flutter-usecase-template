@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:flutter_usecase_template/extensions/my_string_extension.dart';
 
 import 'package:get/get.dart' hide Response;
 import 'package:get_storage/get_storage.dart';
@@ -9,6 +8,7 @@ import '../configs/constants.dart';
 
 export 'dio_exception_extension.dart';
 export 'package:dio/dio.dart';
+import '../extensions/my_string_extension.dart';
 
 // If in browser, import 'package:dio/browser.dart'.
 
