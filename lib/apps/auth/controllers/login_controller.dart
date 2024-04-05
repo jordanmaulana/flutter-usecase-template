@@ -1,0 +1,26 @@
+import 'package:get/get.dart';
+
+import '../../../components/popup.dart';
+import '../../../configs/route_name.dart';
+import '../usecases/login_usecase.dart';
+
+class LoginController extends GetxController {
+  final LoginUsecase _loginUsecase = Get.find();
+
+  RxBool obscureText = true.obs;
+  void toggleObscure() => obscureText(!obscureText.value);
+
+  void submitLogin(String email, String password) async {
+    VPopup.loading();
+    final result = await _loginUsecase.invoke(email, password);
+    VPopup.pop();
+    result.when(
+      onSuccess: (data) async {
+        Get.offAllNamed(RouteName.main);
+      },
+      onFailure: (message) {
+        VPopup.error(message);
+      },
+    );
+  }
+}
