@@ -2,15 +2,13 @@
 
 A new Flutter project.
 
-## Getting Started
+## Flutter Version
 
-This project is a starting point for a Flutter application.
+Flutter 3.19.4 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 68bfaea224 (2 weeks ago) • 2024-03-20 15:36:31 -0700
+Engine • revision a5c24f538d
+Tools • Dart 3.3.2 • DevTools 2.31.1
 
-A few resources to get you started if this is your first Flutter project:
+## Project Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Architecture Image](architecture_image.png)
