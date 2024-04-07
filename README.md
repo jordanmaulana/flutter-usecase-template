@@ -15,8 +15,9 @@ Tools • Dart 3.3.2 • DevTools 2.31.1
 
 ### Repo
 Repo class contains numbers of API call or local db functions.
-Good for containing 1 API endpoints. E.g: /api/v1/profile
+Good for containing 1 API endpoints. E.g: /api/v1/profile.
 So API operations upon profile endpoint is consolidated in profile_repo.dart
+
 Example: [ProfileRepo](/lib/apps/profile/repo/profile_repo.dart)
 After adding a repo, register it into [init_di](/lib/init_di.dart)
 
@@ -27,19 +28,23 @@ E.g: **Create new post**
 1. Check owned credits from API get credits because posting requires some credits
 2. Post data to API post to acquire post id
 3. Post images to API images to submit the post image.
-4. The whole flow can be called everywhere and will require some custom flow before / after post
+4. The whole flow can be called everywhere and will require some custom flow before / after post.
+   
 Without standardizing the flow in usecase, it will be risky for copy pasting the code everywhere.
 Also it won't be clean if the views call a single AddPostController. There is a risk that your teammates start bulking AddPostController.
 If a usecase only call a single API, you can directly return a repo, or you won't need a repo. Your call to standardize.
+
 Example: [LoginUsecase](/lib/apps/auth/usecases/login_usecase.dart)
 After adding a usecase, register it into [init_di](/lib/init_di.dart)
 
 ### Controller
 Controller class handles the UI state and channel to usecase(s) if any.
+
 Example: [LoginController](/lib/apps/auth/controllers/login_controller.dart)
 
 ### Page
 Page class shows the page UI.
+
 Example: [LoginPage](/lib/apps/auth/views/login/login_page.dart)
 
 ### File structure
