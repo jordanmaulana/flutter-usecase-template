@@ -80,3 +80,11 @@ Example if you want to CRUD an instance called Post:
           - add_post_page.dart
           - some_elements.dart (for example)
 
+## Unit Test
+If your project is simply just 1 single API call to the backend without any complexity that needs to be secured, adding unit test for such flow is a waste.
+### When to add Unit Test?
+I normally add unit test for model & usecase only. The rest is unnecessary. But if you find anything that needs to be secured, add unit test for it.
+#### Model
+When your model contains some function modifier in addition for the result from json to dart and you need to secure it.
+#### Usecase
+When the usecase contains complex flow that produces different results based on the case happen and you need to secure it.
