@@ -11,7 +11,7 @@ Tools • Dart 3.3.2 • DevTools 2.31.1
 
 ## TODO
 Todo after creating new github repository from this template:
-1. Change application id. Shortcut: find all com.example.flutter_usecase_template
+1. Change application id. Shortcut: find all `com.example.flutter_usecase_template`
 2. Change project title in [main.dart](/lib/main.dart)
 3. Change your project base url in [constants](/lib/configs/constants.dart)
 4. If you have more stuff to differentiate between staging & prod build, add variable in [BuildFlavor](/lib/configs/flavors.dart)
