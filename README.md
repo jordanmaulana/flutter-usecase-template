@@ -9,6 +9,13 @@ Framework • revision 68bfaea224 (2 weeks ago) • 2024-03-20 15:36:31 -0700
 Engine • revision a5c24f538d
 Tools • Dart 3.3.2 • DevTools 2.31.1
 
+## TODO
+Todo after creating new github repository from this template:
+1. Change application id. Shortcut: find all com.example.flutter_usecase_template
+2. Change project title in [main.dart](/lib/main.dart)
+3. Change your project base url in [constants](/lib/configs/constants.dart)
+4. If you have more stuff to differentiate between staging & prod build, add variable in [BuildFlavor](/lib/configs/flavors.dart)
+
 ## Project Architecture
 
 ![Architecture Image](architecture_image.png)
@@ -72,3 +79,4 @@ Example if you want to CRUD an instance called Post:
         - add
           - add_post_page.dart
           - some_elements.dart (for example)
+
