@@ -26,7 +26,7 @@ void initDi() {
     ),
   );
 
-  /// Inject [ProfileRepo] so it can't be called using [Get.find()]
+  /// Inject [ProfileRepo] so it can be called using [Get.find()]
   Get.lazyPut(
     () => ProfileRepo(box: box, dioClient: dioClient),
     fenix: true,

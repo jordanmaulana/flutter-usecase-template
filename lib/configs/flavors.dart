@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 /// Defines every variables that change between testing build and production build.
+///
 /// e.g.: Api URL, Sentry DSN, In App Purchase ids, etc.
 /// How to initiate:
 /// Add Get.put(BuildFlavor.initiate(buildFlavorType: BuildFlavorType.production)); before runApp in every file entry [main.dart, main_staging.dart, etc]
