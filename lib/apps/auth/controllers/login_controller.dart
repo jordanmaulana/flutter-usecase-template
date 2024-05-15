@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 
 import '../../../components/popup.dart';
 import '../../../configs/route_name.dart';
+import '../../profile/controllers/profile_controller.dart';
 import '../usecases/login_usecase.dart';
 
 class LoginController extends GetxController {
+  final ProfileController _profileController = Get.find();
   final LoginUsecase _loginUsecase = Get.find();
 
   RxBool obscureText = true.obs;
@@ -16,6 +18,7 @@ class LoginController extends GetxController {
     VPopup.pop();
     result.when(
       onSuccess: (data) async {
+        await _profileController.getProfile();
         Get.offAllNamed(RouteName.main);
       },
       onFailure: (message) {
