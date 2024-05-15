@@ -1,3 +1,5 @@
+import 'package:flutter_usecase_template/apps/profile/views/profile_page.dart';
+
 import '../../../base/export_view.dart';
 import '../controllers/main_nav_controller.dart';
 
@@ -19,7 +21,7 @@ class MainNavPage extends StatelessWidget {
                 case 1:
                   return Container();
                 case 2:
-                  return Container();
+                  return const ProfilePage();
               }
               return Container();
             },
