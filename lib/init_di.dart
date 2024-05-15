@@ -3,6 +3,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'api/dio_client.dart';
 import 'apps/auth/usecases/login_usecase.dart';
+import 'apps/profile/controllers/profile_controller.dart';
 import 'apps/profile/repo/profile_repo.dart';
 import 'apps/profile/usecases/get_profile_usecase.dart';
 import 'configs/flavors.dart';
@@ -42,4 +43,5 @@ void initDi() {
   );
 
   Get.lazyPut(() => GetProfileUsecase(Get.find()));
+  Get.put(ProfileController());
 }
