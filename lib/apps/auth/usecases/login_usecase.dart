@@ -1,8 +1,8 @@
 import 'package:get_storage/get_storage.dart';
 
 import '../../../api/dio_client.dart';
-import '../../../base/resource.dart';
 
+import '../../../base/resource.dart';
 import '../../../configs/constants.dart';
 import '../../profile/models/profile.dart';
 import '../../profile/repo/profile_repo.dart';
@@ -27,7 +27,8 @@ class LoginUsecase {
   ///
   /// No need for login API call to be moved to repo because it is only called once in 1 place [LoginPage].
   /// Returns [Profile] upon success.
-  Future<Resource<Profile>> invoke(String email, String password) async {
+  Future<Resource<Profile, String>> invoke(
+      String email, String password) async {
     try {
       final response = await _dioClient.post(
         '/api/login',

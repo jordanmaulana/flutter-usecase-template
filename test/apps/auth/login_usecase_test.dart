@@ -131,7 +131,7 @@ void main() {
       expect(result.hasData, true);
 
       /// Expect the data to be the same with mocked data.
-      expect(result.data.id, 1);
+      expect(result.data!.id, 1);
     });
   });
 }

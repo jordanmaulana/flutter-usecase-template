@@ -42,7 +42,7 @@ dependencies:
   get_storage: ^2.1.1
   google_fonts: ^6.1.0
   intl: ^0.19.0
-  package_info_plus: ^6.0.0
+  package_info_plus: ^8.0.3
   url_launcher: ^6.3.0
 
 dev_dependencies:
@@ -54,7 +54,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^5.0.0
 
   # To generate mock objects, run the command below.
   # dart run build_runner build

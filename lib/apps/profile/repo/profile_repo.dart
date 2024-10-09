@@ -22,7 +22,7 @@ class ProfileRepo {
       : _box = box,
         _dioClient = dioClient;
 
-  Future<Resource<Profile>> getProfile() async {
+  Future<Resource<Profile, String>> getProfile() async {
     try {
       /// if no token saved, return unauthenticated error.
       if (!_box.hasData(Constants.token)) {

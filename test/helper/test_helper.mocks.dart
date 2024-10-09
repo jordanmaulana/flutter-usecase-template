@@ -115,7 +115,8 @@ class _FakeResponse_7<T> extends _i1.SmartFake implements _i5.Response<T> {
         );
 }
 
-class _FakeResource_8<T1> extends _i1.SmartFake implements _i6.Resource<T1> {
+class _FakeResource_8<T, E> extends _i1.SmartFake
+    implements _i6.Resource<T, E> {
   _FakeResource_8(
     Object parent,
     Invocation parentInvocation,
@@ -1057,18 +1058,19 @@ class MockProfileRepo extends _i1.Mock implements _i12.ProfileRepo {
   }
 
   @override
-  _i7.Future<_i6.Resource<_i13.Profile>> getProfile() => (super.noSuchMethod(
+  _i7.Future<_i6.Resource<_i13.Profile, String>> getProfile() =>
+      (super.noSuchMethod(
         Invocation.method(
           #getProfile,
           [],
         ),
-        returnValue: _i7.Future<_i6.Resource<_i13.Profile>>.value(
-            _FakeResource_8<_i13.Profile>(
+        returnValue: _i7.Future<_i6.Resource<_i13.Profile, String>>.value(
+            _FakeResource_8<_i13.Profile, String>(
           this,
           Invocation.method(
             #getProfile,
             [],
           ),
         )),
-      ) as _i7.Future<_i6.Resource<_i13.Profile>>);
+      ) as _i7.Future<_i6.Resource<_i13.Profile, String>>);
 }
