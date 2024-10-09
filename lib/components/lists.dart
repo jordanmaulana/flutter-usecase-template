@@ -14,7 +14,6 @@ class VList extends StatelessWidget {
   final int length;
   final Widget? emptyPlaceHolder;
   final Future<void> Function() onRefresh;
-  final Widget Function(BuildContext c, int i) itemBuilder;
   final double? height;
   final EdgeInsets? padding;
   final ScrollPhysics? physics;
@@ -22,6 +21,7 @@ class VList extends StatelessWidget {
   final ScrollController? controller;
   final Axis scrollDirection;
   final Widget? separator;
+  final Widget Function(BuildContext c, int i) itemBuilder;
 
   const VList({
     required this.loading,

@@ -39,8 +39,9 @@ class DioClient extends DioForNative {
           /// Log anything necessary to easily debug
           Get.log('API Response ${response.realUri} ${response.statusCode}: '
               '${response.statusMessage}\n'
-              '${response.requestOptions.uri.queryParameters.prettyPrint}\n'
-              '${response.data.prettyPrint}');
+              '${response.requestOptions.uri.queryParameters.prettyPrint}\n');
+
+          Get.log((response.data as Map<String, dynamic>).prettyPrint);
 
           return handler.next(response);
         },
