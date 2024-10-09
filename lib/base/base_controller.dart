@@ -7,23 +7,23 @@ class BaseListController extends GetxController {
 
   /// Indicates current page in paginated API
   int page = 1;
-  bool next = false;
+  bool hasNext = false;
 
-  /// Indicates is there any error in the API request.
+  /// Indicates error message to be shown in UI
   String error = '';
 
   /// Marked as Future<void> to be able to be used on [RefreshIndicator] widget.
   /// To be called when user drags down the list from top of the list.
   Future<void> resetPage() async {
     page = 1;
-    next = false;
+    hasNext = false;
     error = '';
     getData();
   }
 
   /// To be called when user scroll the list to the max.
   void nextPage() {
-    if (!next || loading) return;
+    if (!hasNext || loading) return;
     page++;
     getData();
   }

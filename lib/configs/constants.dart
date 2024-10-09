@@ -1,5 +1,5 @@
 /// Put all constants here as reference.
-/// Do not hardcode constants
+///
 abstract class Constants {
   static const String stagingUrl = 'https://staging.dev';
   static const String productionUrl = 'https://production.com';
