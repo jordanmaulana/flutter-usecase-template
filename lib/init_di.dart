@@ -7,6 +7,7 @@ import 'apps/profile/controllers/profile_controller.dart';
 import 'apps/profile/repo/profile_repo.dart';
 import 'apps/profile/usecases/get_profile_usecase.dart';
 import 'configs/flavors.dart';
+// import 'configs/theme_service.dart';
 
 /// Inject all dependencies
 ///
@@ -14,8 +15,11 @@ import 'configs/flavors.dart';
 /// Use [Get.lazyput] for dependencies that is only called after some stages of user interaction.
 /// fenix: true indicates that it has its own lifecyle, so that it can be called again after being destroyed.
 void initDi() {
-  GetStorage box = Get.put(GetStorage());
+  /// Use this only when necessary.
+  /// Common project UI has no theme switch.
+  // Get.put(ThemeService());
 
+  GetStorage box = Get.put(GetStorage());
   DioClient dioClient = Get.put(
     DioClient(
       box,

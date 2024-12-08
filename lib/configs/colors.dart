@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 /// Color name must be based on usage, not [purple, brown, etc]
 abstract class VColor {
+  /// Example when we will have a theme switch
+  // static Color get primary => Get.find<ThemeService>().theme.value.primaryColor;
+
   static const Color primary = Color(0xff2382AA);
   static const Color accent = Color(0xff23aa8f);
 
