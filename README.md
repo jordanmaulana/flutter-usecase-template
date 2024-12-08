@@ -9,6 +9,13 @@ Framework • revision 68bfaea224 (2 weeks ago) • 2024-03-20 15:36:31 -0700
 Engine • revision a5c24f538d
 Tools • Dart 3.3.2 • DevTools 2.31.1
 
+## Getting started
+
+```
+dart run husky install
+git add .husky/pre-push
+```
+
 ## TODO
 
 Todo after creating new github repository from this template:
