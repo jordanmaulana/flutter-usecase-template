@@ -4,15 +4,16 @@ A new Flutter project.
 
 ## Flutter Version
 
-Flutter 3.19.4 • channel stable • https://github.com/flutter/flutter.git
-Framework • revision 68bfaea224 (2 weeks ago) • 2024-03-20 15:36:31 -0700
-Engine • revision a5c24f538d
-Tools • Dart 3.3.2 • DevTools 2.31.1
+Flutter 3.24.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 2663184aa7 (3 months ago) • 2024-09-11 16:27:48 -0500
+Engine • revision 36335019a8
+Tools • Dart 3.5.3 • DevTools 2.37.3
 
 ## Getting started
 
 ```
 dart run husky install
+git add .husky/pre-commit
 git add .husky/pre-push
 ```
 
@@ -27,7 +28,8 @@ Todo after creating new github repository from this template:
 
 ## Project Architecture
 
-![Architecture Image](architecture_image.png)
+![Pragmatic Approach](pragmatic.jpg)
+![Architecture Image](architecture.jpg)
 
 ### Repo
 
