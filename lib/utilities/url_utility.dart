@@ -15,7 +15,7 @@ class UrlUtility {
     if (match != null && match.groupCount >= 1) {
       String? thumbnail = match.group(1);
       if (thumbnail != null) {
-        return 'https://img.youtube.com/vi/${thumbnail}/0.jpg';
+        return 'https://img.youtube.com/vi/$thumbnail/0.jpg';
       }
       return null;
     }
