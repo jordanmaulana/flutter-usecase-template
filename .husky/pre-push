@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-dart analyze
+dart analyze --fatal-infos --fatal-warnings
 flutter test
