@@ -1,3 +1,5 @@
+// ignore_for_file: unintended_html_in_doc_comment
+
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
@@ -9,6 +11,7 @@ import 'constants.dart';
 /// Add Get.put(BuildFlavor.initiate(buildFlavorType: BuildFlavorType.production)); before runApp in every file entry [main.dart, main_staging.dart, etc]
 /// How to use values:
 /// String apiUrl = (Get.find<BuildFlavor>()).apiUrl;
+///
 class BuildFlavor {
   late String apiUrl;
 

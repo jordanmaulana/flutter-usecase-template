@@ -12,7 +12,7 @@ class BaseListController extends GetxController {
   /// Indicates error message to be shown in UI
   String error = '';
 
-  /// Marked as Future<void> to be able to be used on [RefreshIndicator] widget.
+  /// Marked as [Future<void>] to be able to be used on [RefreshIndicator] widget.
   /// To be called when user drags down the list from top of the list.
   Future<void> resetPage() async {
     page = 1;
