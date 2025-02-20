@@ -11,7 +11,6 @@ import '../../helper/test_helper.mocks.dart';
 
 void main() {
   group('Testing login flow', () {
-    final MockDioClient dioClient = MockDioClient();
     final MockGetStorage box = MockGetStorage();
     final MockProfileRepo profileRepo = MockProfileRepo();
     final MockAuthRepo authRepo = MockAuthRepo();
@@ -28,13 +27,7 @@ void main() {
     test('Login failed', () async {
       /// Mock login API to return error user not found.
       when(
-        dioClient.post(
-          '/api/login',
-          data: {
-            'email': 'tes',
-            'password': 'tes',
-          },
-        ),
+        authRepo.invoke('tes', 'tes'),
       ).thenThrow(
         DioException(
           response: Response(
@@ -60,20 +53,11 @@ void main() {
     test('Login success get profile failed', () async {
       /// Mock login API to return success with token.
       when(
-        dioClient.post(
-          '/api/login',
-          data: {
-            'email': 'tes',
-            'password': 'tes',
-          },
-        ),
+        authRepo.invoke('tes', 'tes'),
       ).thenAnswer(
         (realInvocation) {
           return Future.value(
-            Response(
-              requestOptions: RequestOptions(),
-              data: {'api_token': 'token'},
-            ),
+            'token'.toResourceSuccess(),
           );
         },
       );
@@ -101,20 +85,11 @@ void main() {
     test('Login success', () async {
       /// Mock login API to return success with token.
       when(
-        dioClient.post(
-          '/api/login',
-          data: {
-            'email': 'tes',
-            'password': 'tes',
-          },
-        ),
+        authRepo.invoke('tes', 'tes'),
       ).thenAnswer(
         (realInvocation) {
           return Future.value(
-            Response(
-              requestOptions: RequestOptions(),
-              data: {'api_token': 'token'},
-            ),
+            'token'.toResourceSuccess(),
           );
         },
       );
