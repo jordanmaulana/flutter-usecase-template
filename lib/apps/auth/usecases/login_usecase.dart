@@ -23,7 +23,7 @@ class LoginUsecase {
     String email,
     String password,
   ) async {
-    final result = await _authRepo.invoke(email, password);
+    final result = await _authRepo.login(email, password);
 
     if (result.hasError) {
       return result.error!.toResourceFailure();

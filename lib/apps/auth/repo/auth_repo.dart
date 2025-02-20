@@ -6,7 +6,7 @@ class AuthRepo {
 
   AuthRepo({required DioClient dioClient}) : _dioClient = dioClient;
 
-  Future<Resource<String, String>> invoke(String email, String password) async {
+  Future<Resource<String, String>> login(String email, String password) async {
     try {
       final response = await _dioClient.post(
         '/api/login',

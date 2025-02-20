@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_usecase_template/apps/auth/usecases/login_usecase.dart';
 import 'package:flutter_usecase_template/apps/profile/models/profile.dart';
@@ -27,17 +26,9 @@ void main() {
     test('Login failed', () async {
       /// Mock login API to return error user not found.
       when(
-        authRepo.invoke('tes', 'tes'),
+        authRepo.login('tes', 'tes'),
       ).thenThrow(
-        DioException(
-          response: Response(
-            data: {
-              'message': 'User not found',
-            },
-            requestOptions: RequestOptions(),
-          ),
-          requestOptions: RequestOptions(),
-        ),
+        'User not found'.toResourceFailure(),
       );
 
       /// Execute the login flow
@@ -53,7 +44,7 @@ void main() {
     test('Login success get profile failed', () async {
       /// Mock login API to return success with token.
       when(
-        authRepo.invoke('tes', 'tes'),
+        authRepo.login('tes', 'tes'),
       ).thenAnswer(
         (realInvocation) {
           return Future.value(
@@ -85,7 +76,7 @@ void main() {
     test('Login success', () async {
       /// Mock login API to return success with token.
       when(
-        authRepo.invoke('tes', 'tes'),
+        authRepo.login('tes', 'tes'),
       ).thenAnswer(
         (realInvocation) {
           return Future.value(

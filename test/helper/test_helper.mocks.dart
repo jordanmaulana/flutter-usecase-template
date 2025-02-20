@@ -1085,7 +1085,7 @@ class MockAuthRepo extends _i1.Mock implements _i14.AuthRepo {
   }
 
   @override
-  _i7.Future<_i6.Resource<String, String>> invoke(
+  _i7.Future<_i6.Resource<String, String>> login(
     String? email,
     String? password,
   ) =>
