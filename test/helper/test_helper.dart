@@ -1,4 +1,5 @@
 import 'package:flutter_usecase_template/api/dio_client.dart';
+import 'package:flutter_usecase_template/apps/auth/repo/auth_repo.dart';
 import 'package:flutter_usecase_template/apps/profile/repo/profile_repo.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:mockito/annotations.dart';
@@ -9,5 +10,6 @@ import 'package:mockito/annotations.dart';
 
   /// Add objects to be mocked here.
   ProfileRepo,
+  AuthRepo,
 ])
 void main() {}

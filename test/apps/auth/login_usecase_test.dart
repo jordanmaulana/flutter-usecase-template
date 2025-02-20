@@ -14,11 +14,12 @@ void main() {
     final MockDioClient dioClient = MockDioClient();
     final MockGetStorage box = MockGetStorage();
     final MockProfileRepo profileRepo = MockProfileRepo();
+    final MockAuthRepo authRepo = MockAuthRepo();
     late LoginUsecase loginUsecase;
 
     setUp(() {
       loginUsecase = LoginUsecase(
-        dioClient: dioClient,
+        authRepo: authRepo,
         profileRepo: profileRepo,
         box: box,
       );

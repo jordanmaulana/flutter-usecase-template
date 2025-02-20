@@ -4,14 +4,7 @@ import '../../../api/dio_client.dart';
 import '../../../base/resource.dart';
 import '../../../configs/constants.dart';
 import '../models/profile.dart';
-import '../../auth/usecases/login_usecase.dart';
-import '../../profile/usecases/get_profile_usecase.dart';
 
-/// Handles API calls related to the profile.
-///
-/// Repo classes will come in handy when it's used by many usecases.
-/// For instance, [getProfile] is used in [LoginUsecase] and [GetProfileUsecase].
-/// This way, we don't have to write the whole API call flow twice, thus reducing human error of copy pasting the code.
 class ProfileRepo {
   final DioClient _dioClient;
   final GetStorage _box;

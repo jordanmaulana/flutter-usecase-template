@@ -9,6 +9,7 @@ import 'dart:ui' as _i9;
 import 'package:dio/dio.dart' as _i5;
 import 'package:flutter/widgets.dart' as _i10;
 import 'package:flutter_usecase_template/api/dio_client.dart' as _i11;
+import 'package:flutter_usecase_template/apps/auth/repo/auth_repo.dart' as _i14;
 import 'package:flutter_usecase_template/apps/profile/models/profile.dart'
     as _i13;
 import 'package:flutter_usecase_template/apps/profile/repo/profile_repo.dart'
@@ -1073,4 +1074,39 @@ class MockProfileRepo extends _i1.Mock implements _i12.ProfileRepo {
           ),
         )),
       ) as _i7.Future<_i6.Resource<_i13.Profile, String>>);
+}
+
+/// A class which mocks [AuthRepo].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAuthRepo extends _i1.Mock implements _i14.AuthRepo {
+  MockAuthRepo() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.Future<_i6.Resource<String, String>> invoke(
+    String? email,
+    String? password,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #invoke,
+          [
+            email,
+            password,
+          ],
+        ),
+        returnValue: _i7.Future<_i6.Resource<String, String>>.value(
+            _FakeResource_8<String, String>(
+          this,
+          Invocation.method(
+            #invoke,
+            [
+              email,
+              password,
+            ],
+          ),
+        )),
+      ) as _i7.Future<_i6.Resource<String, String>>);
 }

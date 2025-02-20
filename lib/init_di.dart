@@ -1,3 +1,4 @@
+import 'package:flutter_usecase_template/apps/auth/repo/auth_repo.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -5,7 +6,7 @@ import 'api/dio_client.dart';
 import 'apps/auth/usecases/login_usecase.dart';
 import 'apps/profile/controllers/profile_controller.dart';
 import 'apps/profile/repo/profile_repo.dart';
-import 'apps/profile/usecases/get_profile_usecase.dart';
+
 import 'configs/flavors.dart';
 // import 'configs/theme_service.dart';
 
@@ -17,7 +18,7 @@ import 'configs/flavors.dart';
 void initDi() {
   /// Use this only when necessary.
   /// Common project UI has no theme switch.
-  // Get.put(ThemeService());
+  /// Get.put(ThemeService());
 
   GetStorage box = Get.put(GetStorage());
   DioClient dioClient = Get.put(
@@ -31,6 +32,8 @@ void initDi() {
     ),
   );
 
+  AuthRepo authRepo = Get.put(AuthRepo(dioClient: dioClient));
+
   /// Inject [ProfileRepo] so it can be called using [Get.find()]
   Get.lazyPut(
     () => ProfileRepo(box: box, dioClient: dioClient),
@@ -40,12 +43,11 @@ void initDi() {
   Get.lazyPut(
     () => LoginUsecase(
       box: box,
-      dioClient: dioClient,
+      authRepo: authRepo,
       profileRepo: Get.find(),
     ),
     fenix: true,
   );
 
-  Get.lazyPut(() => GetProfileUsecase(Get.find()));
   Get.put(ProfileController());
 }

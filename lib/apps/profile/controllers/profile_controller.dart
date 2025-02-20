@@ -1,13 +1,13 @@
+import 'package:flutter_usecase_template/apps/profile/repo/profile_repo.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../configs/constants.dart';
 import '../../../configs/route_name.dart';
 import '../models/profile.dart';
-import '../usecases/get_profile_usecase.dart';
 
 class ProfileController extends GetxController {
-  final GetProfileUsecase _getProfileUsecase = Get.find();
+  final ProfileRepo _profileRepo = Get.find();
   final GetStorage _box = Get.find();
   Profile? profile;
 
@@ -17,7 +17,7 @@ class ProfileController extends GetxController {
       update();
     }
 
-    final result = await _getProfileUsecase.invoke();
+    final result = await _profileRepo.getProfile();
     result.when(
       onSuccess: (data) {
         profile = data;
