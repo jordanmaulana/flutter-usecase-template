@@ -36,7 +36,7 @@ class VPopup {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               VText(
-                title ?? 'Galat',
+                title ?? 'Error',
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
               ),
