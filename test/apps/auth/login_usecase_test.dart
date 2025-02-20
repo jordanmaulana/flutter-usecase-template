@@ -27,8 +27,12 @@ void main() {
       /// Mock login API to return error user not found.
       when(
         authRepo.login('tes', 'tes'),
-      ).thenThrow(
-        'User not found'.toResourceFailure(),
+      ).thenAnswer(
+        (realInvocation) {
+          return Future.value(
+            'User not found'.toResourceFailure(),
+          );
+        },
       );
 
       /// Execute the login flow
