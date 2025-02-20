@@ -45,6 +45,7 @@ dependencies:
   package_info_plus: ^8.0.3
   url_launcher: ^6.3.0
   flutter_dotenv: ^5.1.0
+  toastification: ^2.3.0
 
 dev_dependencies:
   flutter_test:
