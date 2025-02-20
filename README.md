@@ -1,13 +1,13 @@
 # flutter_usecase_template
 
-A new Flutter project.
+A flutter template to quickstart your flutter projects. Use this if you like pragmatic or less rigid approach.
 
 ## Flutter Version
 
-Flutter 3.24.3 • channel stable • https://github.com/flutter/flutter.git
-Framework • revision 2663184aa7 (3 months ago) • 2024-09-11 16:27:48 -0500
-Engine • revision 36335019a8
-Tools • Dart 3.5.3 • DevTools 2.37.3
+Flutter 3.27.4 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision d8a9f9a52e (3 weeks ago) • 2025-01-31 16:07:18 -0500
+Engine • revision 82bd5b7209
+Tools • Dart 3.6.2 • DevTools 2.40.3
 
 ## Getting started
 
