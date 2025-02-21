@@ -41,4 +41,4 @@ jobs:
           PROJECT_NAME: Flutter Usecase Template
         uses: Ilshidur/action-discord@master
         with:
-          args: "{{ env.MESSAGE }}"
+          args: "{{ MESSAGE }}"
