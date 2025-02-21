@@ -20,7 +20,8 @@ jobs:
       - run: flutter --version
 
       - name: Check for outdated Flutter packages
-
+        env:
+          PROJECT_NAME: Flutter Usecase Template
         run: |
           output=$(flutter pub outdated)
           echo "$output"
@@ -38,7 +39,6 @@ jobs:
       - name: Notify Discord
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          PROJECT_NAME: Flutter Usecase Template
         uses: Ilshidur/action-discord@master
         with:
           args: "{{ MESSAGE }}"
