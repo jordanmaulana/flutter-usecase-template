@@ -20,26 +20,25 @@ jobs:
       - run: flutter --version
 
       - name: Check for outdated Flutter packages
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          PROJECT_NAME: Flutter Usecase Template
+
         run: |
           output=$(flutter pub outdated)
           echo "$output"
           echo "$output" > outdated_report.txt          
           upgradable_packages=$(awk '/direct dependencies:/ {flag=1; next} /^$/ {flag=0} flag' outdated_report.txt)
+          echo "Updradable packages:"
           echo "$upgradable_packages"
 
           if [ -n "$upgradable_packages" ]; then
-            message="⚠️ *$PROJECT_NAME packages have updates available!*\n\`\`\`\n$upgradable_packages\n\`\`\`"
+            message="⚠️ *$PROJECT_NAME packages have updates available!*\`\`\`\n$upgradable_packages\`\`\`"
           else
             message="✅ $PROJECT_NAME dependencies are up to date!"
           fi
 
-          # Escape JSON properly
-          payload=$(jq -n --arg content "$message" '{content: $content}')
-
-          curl -H "Content-Type: application/json" \
-                -X POST \
-                -d "$payload" \
-                $DISCORD_WEBHOOK
+      - name: Notify Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          PROJECT_NAME: Flutter Usecase Template
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "$message"
