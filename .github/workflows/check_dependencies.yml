@@ -34,14 +34,18 @@ jobs:
       - name: Send Notification to Discord
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          PROJECT_NAME: Flutter Usecase Template
         run: |
           if [ "$UPGRADABLE" = "true" ]; then
-            message="⚠️ *Some Flutter packages have updates available!*\n\`\`\`\n$(cat outdated_report.txt | grep -A100 'Upgradable')\n\`\`\`"
+            message="⚠️ *$PROJECT_NAME packages have updates available!*\n\`\`\`\n$(cat outdated_report.txt | grep -A100 'Upgradable')\n\`\`\`"
           else
-            message="✅ All Flutter dependencies are up to date!"
+            message="✅ $PROJECT_NAME dependencies are up to date!"
           fi
 
+          # Escape JSON properly
+          payload=$(jq -n --arg content "$message" '{content: $content}')
+
           curl -H "Content-Type: application/json" \
-               -X POST \
-               -d "{\"content\": \"$message\"}" \
-               $DISCORD_WEBHOOK
+                -X POST \
+                -d "$payload" \
+                $DISCORD_WEBHOOK
