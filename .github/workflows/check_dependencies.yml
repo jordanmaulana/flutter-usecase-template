@@ -1,0 +1,46 @@
+name: Check Flutter Dependencies
+
+on:
+  schedule:
+    - cron: "0 1 * * *" # Runs every day at 8:00 AM UTC
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: stable
+
+      - name: Run Flutter Pub Outdated
+        id: outdated
+        run: |
+          output=$(flutter pub outdated)
+          echo "$output"
+          echo "$output" > outdated_report.txt
+          if echo "$output" | grep -q "upgradable"; then
+            echo "UPGRADABLE=true" >> $GITHUB_ENV
+          else
+            echo "UPGRADABLE=false" >> $GITHUB_ENV
+          fi
+
+      - name: Send Notification to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ "$UPGRADABLE" = "true" ]; then
+            message="⚠️ *Some Flutter packages have updates available!*\n\`\`\`\n$(cat outdated_report.txt | grep -A100 'Upgradable')\n\`\`\`"
+          else
+            message="✅ All Flutter dependencies are up to date!"
+          fi
+
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\": \"$message\"}" \
+               $DISCORD_WEBHOOK
