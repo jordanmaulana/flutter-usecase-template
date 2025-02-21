@@ -27,7 +27,7 @@ jobs:
           output=$(flutter pub outdated)
           echo "$output"
           echo "$output" > outdated_report.txt          
-          upgradable_packages=$(awk '/direct dependencies:/,0' outdated_report.txt | tail -n +2)
+          upgradable_packages=$(awk '/direct dependencies:/ {flag=1; next} /^$/ {flag=0} flag' outdated_report.txt)
           echo "$upgradable_packages"
 
           if [ -n "$upgradable_packages" ]; then
