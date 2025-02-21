@@ -30,9 +30,9 @@ jobs:
           echo "$upgradable_packages"
 
           if [ -n "$upgradable_packages" ]; then
-            message="⚠️ *$PROJECT_NAME packages have updates available!*\`\`\`\n$upgradable_packages\`\`\`"
+            echo "MESSAGE=⚠️ **$PROJECT_NAME** packages have updates available!\`\`\`$upgradable_packages\`\`\`" >> $GITHUB_ENV
           else
-            message="✅ $PROJECT_NAME dependencies are up to date!"
+            echo "MESSAGE=✅ **$PROJECT_NAME** dependencies are up to date!" >> $GITHUB_ENV
           fi
 
       - name: Notify Discord
@@ -41,4 +41,4 @@ jobs:
           PROJECT_NAME: Flutter Usecase Template
         uses: Ilshidur/action-discord@master
         with:
-          args: "$message"
+          args: "{{ env.MESSAGE }}"
