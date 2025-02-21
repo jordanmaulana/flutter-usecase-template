@@ -24,10 +24,12 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           PROJECT_NAME: Flutter Usecase Template
         run: |
-          flutter pub outdated > outdated_report.txt
+          output=$(flutter pub outdated)
+          echo "$output"
+          echo "$output" > outdated_report.txt          
           upgradable_packages=$(awk '/direct dependencies:/,0' outdated_report.txt | tail -n +2)
 
-          if [ "$UPGRADABLE" = "true" ]; then
+          if [ -n "$upgradable_packages" ]; then
             message="⚠️ *$PROJECT_NAME packages have updates available!*\n\`\`\`\n$upgradable_packages\n\`\`\`"
           else
             message="✅ $PROJECT_NAME dependencies are up to date!"
