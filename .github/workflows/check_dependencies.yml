@@ -2,7 +2,7 @@ name: Check Flutter Dependencies
 
 on:
   schedule:
-    - cron: "0 1 * * *" # Runs every day at 8:00 AM UTC
+    - cron: "0 1 * * *" # Runs every day at 8:00 JKT
   workflow_dispatch: # Allows manual trigger
 
 jobs:
@@ -28,6 +28,7 @@ jobs:
           echo "$output"
           echo "$output" > outdated_report.txt          
           upgradable_packages=$(awk '/direct dependencies:/,0' outdated_report.txt | tail -n +2)
+          echo "$upgradable_packages"
 
           if [ -n "$upgradable_packages" ]; then
             message="⚠️ *$PROJECT_NAME packages have updates available!*\n\`\`\`\n$upgradable_packages\n\`\`\`"
