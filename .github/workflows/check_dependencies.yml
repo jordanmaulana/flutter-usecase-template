@@ -31,7 +31,12 @@ jobs:
           echo "$upgradable_packages"
 
           if [ -n "$upgradable_packages" ]; then
-            echo "MESSAGE=⚠️ **$PROJECT_NAME** packages have updates available!\`\`\`$upgradable_packages\`\`\`" >> $GITHUB_ENV
+            formatted_message="⚠️ **$PROJECT_NAME** packages have updates available!\`\`\`$(echo "$upgradable_packages")\`\`\`"
+            {
+              echo "MESSAGE<<EOF"
+              echo "$formatted_message"
+              echo "EOF"
+            } >> $GITHUB_ENV
           else
             echo "MESSAGE=✅ **$PROJECT_NAME** dependencies are up to date!" >> $GITHUB_ENV
           fi
