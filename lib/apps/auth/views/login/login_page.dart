@@ -85,7 +85,7 @@ class _LoginPage extends State<LoginPage> {
                             hint: 'Enter your email',
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Email harus diisi';
+                                return 'Email must not be empty';
                               }
                               return null;
                             },
@@ -103,7 +103,7 @@ class _LoginPage extends State<LoginPage> {
                                 hint: 'Enter your password',
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Password harus diisi';
+                                    return 'Password must not be empty';
                                   }
                                   return null;
                                 },
