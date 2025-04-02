@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../configs/colors.dart';
 import 'texts.dart';
@@ -10,6 +11,7 @@ class VFormInput extends StatelessWidget {
   final double radius;
   final bool obscure;
   final Color? fillColor;
+  final Widget? prefixIcon;
   final Widget? suffixIcon;
   final String? Function(String? text)? validator;
   final void Function(String? text)? onSaved;
@@ -33,6 +35,7 @@ class VFormInput extends StatelessWidget {
     this.hint,
     this.radius = 8.0,
     this.obscure = false,
+    this.prefixIcon,
     this.suffixIcon,
     this.validator,
     this.onSaved,
@@ -74,13 +77,15 @@ class VFormInput extends StatelessWidget {
       onFieldSubmitted: onSubmit,
       initialValue: initialValue,
       decoration: InputDecoration(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
         label: VText(label),
         isDense: dense,
+        prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hint,
         fillColor: fillColor,
         filled: fillColor != null,
-        // hintStyle: GoogleFonts.openSans(),
+        hintStyle: GoogleFonts.interTight(),
         focusedBorder: _border(color: VColor.primary, radius: radius),
         enabledBorder:
             _border(color: borderColor ?? VColor.border, radius: radius),

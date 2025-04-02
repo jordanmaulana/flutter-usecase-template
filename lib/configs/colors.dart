@@ -5,8 +5,8 @@ abstract class VColor {
   /// Example when we will have a theme switch
   // static Color get primary => Get.find<ThemeService>().theme.value.primaryColor;
 
-  static const Color primary = Color(0xff2382AA);
-  static const Color accent = Color(0xff23aa8f);
+  static const Color primary = Color(0xff00786f);
+  static const Color accent = Color(0xff00bba7);
 
   static const Color primary2 = Color(0xff7C49DF);
   static const Color accent2 = Color(0xffC33CE8);

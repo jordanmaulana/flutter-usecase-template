@@ -1,4 +1,4 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 import '../../../base/export_view.dart';
 import '../../../components/styles.dart';
@@ -23,9 +23,10 @@ class ProfilePage extends StatelessWidget {
                   children: [
                     const VText('Logout'),
                     SizedBox(width: context.mdPadding),
-                    const FaIcon(
-                      FontAwesomeIcons.rightFromBracket,
+                    HugeIcon(
+                      icon: HugeIcons.strokeRoundedLogout01,
                       size: 12.0,
+                      color: VColor.primary,
                     ),
                   ],
                 ),
@@ -78,14 +79,16 @@ class ProfilePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProfileItem(
-                      icon: FontAwesomeIcons.envelope,
-                      title: controller.profile?.email,
+                    HugeIcon(
+                      icon: HugeIcons.strokeRoundedMail01,
+                      size: 12.0,
+                      color: VColor.primary,
                     ),
                     SizedBox(height: context.smPadding),
-                    ProfileItem(
-                      icon: FontAwesomeIcons.whatsapp,
-                      title: controller.profile?.phone,
+                    HugeIcon(
+                      icon: HugeIcons.strokeRoundedPhoneOff01,
+                      size: 12.0,
+                      color: VColor.primary,
                     ),
                     const Divider(height: 48.0),
                     InkWell(
@@ -93,9 +96,10 @@ class ProfilePage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const FaIcon(
-                            FontAwesomeIcons.penToSquare,
-                            size: 14.0,
+                          HugeIcon(
+                            icon: HugeIcons.strokeRoundedEdit01,
+                            size: 12.0,
+                            color: VColor.primary,
                           ),
                           SizedBox(width: context.smPadding),
                           const VText('Sunting akun', fontSize: 12.0),
@@ -111,26 +115,6 @@ class ProfilePage extends StatelessWidget {
           );
         },
       ),
-    );
-  }
-}
-
-class ProfileItem extends StatelessWidget {
-  final IconData icon;
-  final String? title;
-  const ProfileItem({required this.icon, required this.title, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        FaIcon(
-          icon,
-          size: 14.0,
-        ),
-        SizedBox(width: context.smPadding),
-        VText(title, fontSize: 12.0),
-      ],
     );
   }
 }

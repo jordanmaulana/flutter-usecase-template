@@ -19,12 +19,7 @@ class PrimaryButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
-          gradient: const LinearGradient(
-            colors: [
-              VColor.primary,
-              VColor.accent,
-            ],
-          ),
+          color: VColor.primary,
         ),
         child: VText(
           title,

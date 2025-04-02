@@ -43,7 +43,7 @@ class VText extends StatelessWidget {
       color: Colors.transparent,
       child: Text(
         text,
-        style: GoogleFonts.raleway(
+        style: GoogleFonts.interTight(
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,

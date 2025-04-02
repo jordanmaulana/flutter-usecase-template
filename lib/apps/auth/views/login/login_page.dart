@@ -1,8 +1,10 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter_usecase_template/components/styles.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 import '../../../../base/export_view.dart';
 import '../../../../components/buttons.dart';
 import '../../../../components/inputs.dart';
+
 import '../../../../configs/route_name.dart';
 import '../../controllers/login_controller.dart';
 
@@ -23,75 +25,142 @@ class _LoginPage extends State<LoginPage> {
     LoginController controller = Get.put(LoginController());
 
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(context.mdPadding),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                SizedBox(height: context.xlPadding),
-                VFormInput(
-                  keyboardType: TextInputType.emailAddress,
-                  label: 'Email',
-                  hint: 'email@yourdomain.com',
-                  initialValue:
-                      kDebugMode ? 'jordanmaulana25+3@gmail.com' : null,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Email harus diisi';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _email = value!;
-                  },
-                ),
-                SizedBox(height: context.mdPadding),
-                Obx(() => VFormInput(
-                      obscure: controller.obscureText.value,
-                      keyboardType: TextInputType.emailAddress,
-                      label: 'Password',
-                      hint: '***',
-                      initialValue: kDebugMode ? 'admin123' : null,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Password harus diisi';
-                        }
-                        return null;
-                      },
-                      onSaved: (String? value) {
-                        _password = value!;
-                      },
-                      suffixIcon: IconButton(
-                        onPressed: controller.toggleObscure,
-                        icon: Icon(
-                          controller.obscureText.isTrue
-                              ? Icons.visibility_outlined
-                              : Icons.visibility_off_outlined,
-                        ),
-                      ),
-                    )),
-                SizedBox(height: context.lgPadding),
-                PrimaryButton(
-                  'Masuk',
-                  onTap: () async {
-                    final FormState form = _formKey.currentState!;
-                    if (!form.validate()) return;
-                    form.save();
-                    controller.submitLogin(_email, _password);
-                  },
-                ),
-                SizedBox(height: context.lgPadding),
-                const VText('Tidak memiliki akun? '),
-                SizedBox(height: context.smPadding),
-                SecondaryButton(
-                  'Buat Akun',
-                  onTap: () => Get.toNamed(RouteName.register),
-                ),
-              ],
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [VColor.primary, VColor.accent],
           ),
+        ),
+        child: SafeArea(
+          child: LayoutBuilder(builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight,
+                ),
+                child: Center(
+                  child: Form(
+                    key: _formKey,
+                    child: Container(
+                      margin: EdgeInsets.all(context.lgPadding),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: context.lgPadding,
+                        vertical: context.xlPadding,
+                      ),
+                      decoration: BoxDecoration(
+                        color: VColor.white,
+                        borderRadius: BorderRadius.circular(16.0),
+                        boxShadow: VStyle.shadow(),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        spacing: context.mdPadding,
+                        children: [
+                          FlutterLogo(
+                            size: 64.0,
+                          ),
+                          Column(
+                            spacing: context.smPadding,
+                            children: [
+                              VText(
+                                'Welcome to AppName',
+                                color: VColor.primary,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              VText(
+                                'Sign in to continue',
+                                color: VColor.greyText,
+                              ),
+                            ],
+                          ),
+                          VFormInput(
+                            prefixIcon: HugeIcon(
+                              icon: HugeIcons.strokeRoundedMail01,
+                              color: VColor.primary,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            hint: 'Enter your email',
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Email harus diisi';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _email = value!;
+                            },
+                          ),
+                          Obx(() => VFormInput(
+                                prefixIcon: HugeIcon(
+                                  icon: HugeIcons.strokeRoundedSquareLock02,
+                                  color: VColor.primary,
+                                ),
+                                obscure: controller.obscureText.value,
+                                keyboardType: TextInputType.emailAddress,
+                                hint: 'Enter your password',
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Password harus diisi';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (String? value) {
+                                  _password = value!;
+                                },
+                                suffixIcon: IconButton(
+                                  onPressed: controller.toggleObscure,
+                                  icon: Icon(
+                                    controller.obscureText.isTrue
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                  ),
+                                ),
+                              )),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: VText(
+                              'Forgot password?',
+                              color: VColor.primary,
+                            ),
+                          ),
+                          PrimaryButton(
+                            'Sign In',
+                            onTap: () async {
+                              final FormState form = _formKey.currentState!;
+                              if (!form.validate()) return;
+                              form.save();
+                              controller.submitLogin(_email, _password);
+                            },
+                          ),
+                          Row(
+                            spacing: 4.0,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              VText(
+                                'Don\'t have an account?',
+                                color: VColor.greyText,
+                              ),
+                              InkWell(
+                                onTap: () => Get.toNamed(RouteName.register),
+                                child: VText(
+                                  'Sign Up',
+                                  color: VColor.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }),
         ),
       ),
     );
