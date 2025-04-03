@@ -1,5 +1,3 @@
-import 'package:hugeicons/hugeicons.dart';
-
 import '../../../base/export_view.dart';
 import '../../../components/styles.dart';
 import '../../../components/version_text.dart';

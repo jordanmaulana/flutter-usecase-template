@@ -1,5 +1,5 @@
 export 'package:get/get.dart';
-
+export 'package:hugeicons/hugeicons.dart';
 export 'package:flutter/material.dart';
 
 export '../extensions/my_string_extension.dart';

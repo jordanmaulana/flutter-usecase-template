@@ -1,5 +1,4 @@
 import 'package:flutter_usecase_template/components/styles.dart';
-import 'package:hugeicons/hugeicons.dart';
 
 import '../../../../base/export_view.dart';
 import '../../../../components/buttons.dart';
@@ -112,10 +111,11 @@ class _LoginPage extends State<LoginPage> {
                                 },
                                 suffixIcon: IconButton(
                                   onPressed: controller.toggleObscure,
-                                  icon: Icon(
-                                    controller.obscureText.isTrue
-                                        ? Icons.visibility_outlined
-                                        : Icons.visibility_off_outlined,
+                                  icon: HugeIcon(
+                                    icon: controller.obscureText.isTrue
+                                        ? HugeIcons.strokeRoundedView
+                                        : HugeIcons.strokeRoundedViewOff,
+                                    color: VColor.primary,
                                   ),
                                 ),
                               )),
