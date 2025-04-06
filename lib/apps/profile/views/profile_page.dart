@@ -100,7 +100,7 @@ class ProfilePage extends StatelessWidget {
                             color: VColor.primary,
                           ),
                           SizedBox(width: context.smPadding),
-                          const VText('Sunting akun', fontSize: 12.0),
+                          const VText('Edit Account', fontSize: 12.0),
                         ],
                       ),
                     )

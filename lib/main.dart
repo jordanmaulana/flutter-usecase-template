@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           page: () {
             return GetBuilder(
               builder: (ProfileController controller) {
-                // if (controller.profile == null) return const LoginPage();
+                if (controller.profile == null) return const LoginPage();
                 return const MainNavPage();
               },
             );
