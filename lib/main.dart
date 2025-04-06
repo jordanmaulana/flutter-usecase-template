@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
       getPages: [
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           page: () {
             return GetBuilder(
               builder: (ProfileController controller) {
-                if (controller.profile == null) return const LoginPage();
+                // if (controller.profile == null) return const LoginPage();
                 return const MainNavPage();
               },
             );
