@@ -15,15 +15,15 @@ extension ResponseExtension on DioException {
 
       switch (response!.statusCode) {
         case 400:
-          return error ?? 'Masukan tidak valid';
+          return error ?? 'Please check your input';
         case 403:
-          return error ?? 'Akses tidak tersedia';
+          return error ?? 'Invalid access';
         case 404:
-          return error ?? 'Layanan tidak lagi tersedia';
+          return error ?? 'This service is no longer available';
         case 500:
-          return error ?? 'Layanan sedang diperbaiki';
+          return error ?? 'Something went wrong on our end';
         default:
-          return error ?? 'Terjadi kesalahan';
+          return error ?? 'Something went wrong';
       }
     } else {
       /// Something happened in setting up or sending the request that triggered an Error
