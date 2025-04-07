@@ -7,12 +7,14 @@ abstract class VColor {
 
   static const Color primary = Color(0xff00786f);
   static const Color accent = Color(0xff00bba7);
+  static const Color tertiary = Color(0xfff0fdfa);
 
   static const Color primary2 = Color(0xff7C49DF);
   static const Color accent2 = Color(0xffC33CE8);
 
   static const Color dark = Color(0xff240F51);
-  static const Color error = Color(0xffff356e);
+  static const Color error = Color(0xffc01c67);
+  static const Color errorAccent = Color(0xfffef2f2);
   static const Color border = Color(0xffE0E0E0);
   static const Color scaffoldBg = Color(0xfff2f9fc);
 
