@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_usecase_template/apps/auth/views/forgot_password_page.dart';
 import 'package:flutter_usecase_template/apps/auth/views/login_page.dart';
 import 'package:flutter_usecase_template/apps/auth/views/registration_page.dart';
 import 'package:flutter_usecase_template/apps/main_nav/views/main_nav_page.dart';
@@ -37,6 +38,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: RouteName.register,
           page: () => const RegistrationPage(),
+        ),
+        GetPage(
+          name: RouteName.forgotPassword,
+          page: () => const ForgotPasswordPage(),
         ),
       ],
     );

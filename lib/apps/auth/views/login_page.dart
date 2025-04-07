@@ -117,9 +117,13 @@ class _LoginPage extends State<LoginPage> {
                               )),
                           Align(
                             alignment: Alignment.centerRight,
-                            child: VText(
-                              'Forgot password?',
-                              color: VColor.primary,
+                            child: InkWell(
+                              onTap: () =>
+                                  Get.toNamed(RouteName.forgotPassword),
+                              child: VText(
+                                'Forgot password?',
+                                color: VColor.primary,
+                              ),
                             ),
                           ),
                           PrimaryButton(
