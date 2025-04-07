@@ -1,11 +1,11 @@
 import 'package:flutter_usecase_template/components/styles.dart';
 
-import '../../../../base/export_view.dart';
-import '../../../../components/buttons.dart';
-import '../../../../components/inputs.dart';
+import '../../../base/export_view.dart';
+import '../../../components/buttons.dart';
+import '../../../components/inputs.dart';
 
-import '../../../../configs/route_name.dart';
-import '../../controllers/login_controller.dart';
+import '../../../configs/route_name.dart';
+import '../controllers/login_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

@@ -24,7 +24,7 @@ class UrlUtility {
 
   static Future<void> openUrl(String url) async {
     if (!await launchUrl(Uri.parse(url))) {
-      VPopup.error("Tidak bisa membuka");
+      VPopup.error("Can't open the URL");
     }
   }
 }
