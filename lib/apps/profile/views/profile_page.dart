@@ -1,5 +1,4 @@
 import '../../../base/export_view.dart';
-import '../../../components/styles.dart';
 import '../../../components/version_text.dart';
 
 import '../controllers/profile_controller.dart';
