@@ -1,8 +1,12 @@
 import 'package:flutter_usecase_template/base/export_view.dart';
 
-class DeleteAccountController {
-  RxBool isLoading = false.obs;
+import '../../../components/toast.dart';
+import '../repo/profile_repo.dart';
 
+class DeleteAccountController {
+  final ProfileRepo _profileRepo = Get.find<ProfileRepo>();
+
+  RxBool isLoading = false.obs;
   RxBool isInputValid = false.obs;
 
   void onChange(String? value) {
@@ -13,7 +17,16 @@ class DeleteAccountController {
     }
   }
 
-  void submit() {
-    // Logic to delete the account
+  void submit() async {
+    final result = await _profileRepo.deleteAccount();
+    result.when(
+      onSuccess: (data) {
+        Get.offAllNamed('/login');
+        VToast.success('Account deleted successfully!');
+      },
+      onFailure: (error) {
+        VToast.error(error);
+      },
+    );
   }
 }

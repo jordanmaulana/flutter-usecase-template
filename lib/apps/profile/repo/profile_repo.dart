@@ -31,4 +31,23 @@ class ProfileRepo {
       return e.errorMessage.toResourceFailure();
     }
   }
+
+  Future<Resource<bool, String>> changePassword(
+      Map<String, String> data) async {
+    try {
+      await _dioClient.post('/api/change_password', data: data);
+      return true.toResourceSuccess();
+    } on DioException catch (e) {
+      return e.errorMessage.toResourceFailure();
+    }
+  }
+
+  Future<Resource<bool, String>> deleteAccount() async {
+    try {
+      await _dioClient.post('/api/delete_account');
+      return true.toResourceSuccess();
+    } on DioException catch (e) {
+      return e.errorMessage.toResourceFailure();
+    }
+  }
 }
