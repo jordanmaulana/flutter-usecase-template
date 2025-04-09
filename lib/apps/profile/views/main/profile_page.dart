@@ -1,3 +1,4 @@
+import 'package:flutter_usecase_template/apps/profile/views/delete_account/delete_account_page.dart';
 import 'package:flutter_usecase_template/apps/profile/views/main/email_icon.dart';
 import 'package:flutter_usecase_template/configs/route_name.dart';
 
@@ -91,19 +92,45 @@ class ProfilePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: context.mdPadding,
-                            vertical: context.smPadding,
-                          ),
-                          decoration: VStyle.corner(
-                            color: VColor.errorAccent,
-                            radius: 8.0,
-                          ),
-                          child: VText(
-                            "Delete Account",
-                            color: VColor.error,
+                        InkWell(
+                          onTap: () {
+                            Get.dialog(
+                              Dialog(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                  16.0,
+                                )),
+                                child: Stack(
+                                  children: [
+                                    DeleteAccountPage(),
+                                    Positioned(
+                                      top: 0.0,
+                                      right: 0.0,
+                                      child: IconButton(
+                                        onPressed: () => Get.back(),
+                                        icon: const Icon(Icons.close,
+                                            color: VColor.primary),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: context.mdPadding,
+                              vertical: context.smPadding,
+                            ),
+                            decoration: VStyle.corner(
+                              color: VColor.errorAccent,
+                              radius: 8.0,
+                            ),
+                            child: VText(
+                              "Delete Account",
+                              color: VColor.error,
+                            ),
                           ),
                         ),
                         Divider(),
