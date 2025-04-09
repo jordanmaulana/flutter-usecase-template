@@ -48,9 +48,7 @@ class RegistrationPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         spacing: context.mdPadding,
                         children: [
-                          FlutterLogo(
-                            size: 64.0,
-                          ),
+                          FlutterLogo(size: 64.0),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
                             child: Column(

@@ -15,13 +15,13 @@ void main() async {
   /// Initialize build flavor.
   Get.put(BuildFlavor.initiate(buildFlavorType: BuildFlavorType.staging));
 
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: VColor.primary, // Set your desired color here
-      statusBarIconBrightness: Brightness.light, // For Android (dark icons)
-      statusBarBrightness: Brightness.dark, // For iOS (light icons)
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     statusBarColor: VColor.primary, // Set your desired color here
+  //     statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+  //     statusBarBrightness: Brightness.dark, // For iOS (light icons)
+  //   ),
+  // );
 
   runApp(const MyApp());
 }

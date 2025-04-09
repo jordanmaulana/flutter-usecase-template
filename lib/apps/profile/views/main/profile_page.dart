@@ -1,4 +1,5 @@
 import 'package:flutter_usecase_template/apps/profile/views/main/email_icon.dart';
+import 'package:flutter_usecase_template/configs/route_name.dart';
 
 import '../../../../base/export_view.dart';
 
@@ -72,19 +73,22 @@ class ProfilePage extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: context.mdPadding),
-                        Container(
-                          width: double.infinity,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: context.mdPadding,
-                            vertical: context.smPadding,
-                          ),
-                          decoration: VStyle.corner(
-                            color: VColor.tertiary,
-                            radius: 8.0,
-                          ),
-                          child: VText(
-                            "Change Password",
-                            color: VColor.primary,
+                        InkWell(
+                          onTap: () => Get.toNamed(RouteName.changePassword),
+                          child: Container(
+                            width: double.infinity,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: context.mdPadding,
+                              vertical: context.smPadding,
+                            ),
+                            decoration: VStyle.corner(
+                              color: VColor.tertiary,
+                              radius: 8.0,
+                            ),
+                            child: VText(
+                              "Change Password",
+                              color: VColor.primary,
+                            ),
                           ),
                         ),
                         Container(
