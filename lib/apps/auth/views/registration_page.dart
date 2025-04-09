@@ -11,7 +11,7 @@ class RegistrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
-    Map<String, dynamic> data = {};
+    Map<String, String> data = {};
     RegisterController controller = Get.put(RegisterController());
 
     return Scaffold(
