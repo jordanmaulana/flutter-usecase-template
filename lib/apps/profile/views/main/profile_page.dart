@@ -4,14 +4,14 @@ import 'package:flutter_usecase_template/configs/route_name.dart';
 
 import '../../../../base/export_view.dart';
 
-// import '../../controllers/profile_controller.dart';
+import '../../controllers/profile_controller.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // ProfileController controller = Get.find();
+    ProfileController controller = Get.find();
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -134,16 +134,19 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ),
                         Divider(),
-                        Row(
-                          spacing: context.smPadding,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            HugeIcon(
-                              icon: HugeIcons.strokeRoundedLogout01,
-                              color: VColor.greyText,
-                            ),
-                            VText("Logout"),
-                          ],
+                        InkWell(
+                          onTap: () => controller.logout(),
+                          child: Row(
+                            spacing: context.smPadding,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              HugeIcon(
+                                icon: HugeIcons.strokeRoundedLogout01,
+                                color: VColor.greyText,
+                              ),
+                              VText("Logout"),
+                            ],
+                          ),
                         ),
                       ],
                     ),
