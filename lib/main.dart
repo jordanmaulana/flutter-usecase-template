@@ -9,6 +9,7 @@ import 'package:flutter_usecase_template/configs/route_name.dart';
 import 'package:flutter_usecase_template/init_di.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toastification/toastification.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,46 +18,48 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     initDi();
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
-        useMaterial3: false,
-        appBarTheme: AppBarTheme(
-          titleTextStyle: GoogleFonts.interTight(
-            color: Colors.white,
-            fontSize: 16.0,
-            fontWeight: FontWeight.w600,
+    return ToastificationWrapper(
+      child: GetMaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+          useMaterial3: false,
+          appBarTheme: AppBarTheme(
+            titleTextStyle: GoogleFonts.interTight(
+              color: Colors.white,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
-      ),
-      getPages: [
-        GetPage(
-          name: RouteName.main,
-          page: () {
-            return GetBuilder(
-              builder: (ProfileController controller) {
-                if (controller.profile == null) return const LoginPage();
-                return const MainNavPage();
-              },
-            );
-          },
-        ),
+        getPages: [
+          GetPage(
+            name: RouteName.main,
+            page: () {
+              return GetBuilder(
+                builder: (ProfileController controller) {
+                  if (controller.profile == null) return const LoginPage();
+                  return const MainNavPage();
+                },
+              );
+            },
+          ),
 
-        /// Add more pages here
-        GetPage(
-          name: RouteName.register,
-          page: () => const RegistrationPage(),
-        ),
-        GetPage(
-          name: RouteName.forgotPassword,
-          page: () => const ForgotPasswordPage(),
-        ),
-        GetPage(
-          name: RouteName.changePassword,
-          page: () => const ChangePasswordPage(),
-        ),
-      ],
+          /// Add more pages here
+          GetPage(
+            name: RouteName.register,
+            page: () => const RegistrationPage(),
+          ),
+          GetPage(
+            name: RouteName.forgotPassword,
+            page: () => const ForgotPasswordPage(),
+          ),
+          GetPage(
+            name: RouteName.changePassword,
+            page: () => const ChangePasswordPage(),
+          ),
+        ],
+      ),
     );
   }
 }
