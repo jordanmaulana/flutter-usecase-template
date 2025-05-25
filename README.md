@@ -1,5 +1,6 @@
-# flutter_usecase_template
+# awesome_flutter_template
 
+Get your MVP product 50% done in day 1.
 A flutter template to quickstart your flutter projects. Use this if you like pragmatic or less rigid approach.
 
 ## Flutter Version
