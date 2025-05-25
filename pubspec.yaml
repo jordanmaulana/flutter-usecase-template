@@ -47,6 +47,7 @@ dependencies:
   flutter_dotenv: ^5.1.0
   toastification: ^3.0.1
   flutter_launcher_icons: ^0.14.3 # dart run flutter_launcher_icons
+  flutter_native_splash: ^2.4.4 # dart run flutter_native_splash:create
 
 dev_dependencies:
   flutter_test:
