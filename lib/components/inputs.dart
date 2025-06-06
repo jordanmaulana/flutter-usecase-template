@@ -100,7 +100,7 @@ class VFormInput extends StatelessWidget {
     );
   }
 
-  _border({required Color color, required double radius}) {
+  OutlineInputBorder _border({required Color color, required double radius}) {
     return OutlineInputBorder(
       borderSide: BorderSide(color: color),
       borderRadius: BorderRadius.all(Radius.circular(radius)),

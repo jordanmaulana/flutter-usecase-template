@@ -1,7 +1,5 @@
 // ignore_for_file: unintended_html_in_doc_comment
 
-import 'package:flutter/material.dart';
-
 import 'constants.dart';
 
 /// Defines every variables that change between testing build and production build.
@@ -19,14 +17,13 @@ class BuildFlavor {
     required this.apiUrl,
   });
 
-  factory BuildFlavor.initiate({@required buildFlavorType}) {
+  factory BuildFlavor.initiate({required BuildFlavorType buildFlavorType}) {
     switch (buildFlavorType) {
       case BuildFlavorType.production:
         return BuildFlavor(apiUrl: Constants.productionUrl);
       case BuildFlavorType.staging:
         return BuildFlavor(apiUrl: Constants.stagingUrl);
     }
-    return BuildFlavor(apiUrl: Constants.stagingUrl);
   }
 }
 

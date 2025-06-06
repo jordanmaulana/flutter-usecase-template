@@ -26,7 +26,7 @@ abstract class VColor {
   static const white = Colors.white;
 
   /// This is to change the SVG color
-  static colorFilter(Color color) {
+  static ColorFilter colorFilter(Color color) {
     return ColorFilter.mode(color, BlendMode.srcIn);
   }
 }

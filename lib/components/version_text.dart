@@ -31,7 +31,7 @@ class VersionTextState extends State<VersionText> {
     );
   }
 
-  getInfo() async {
+  Future<void> getInfo() async {
     info = await PackageInfo.fromPlatform();
     if (mounted) setState(() {});
   }

@@ -16,7 +16,7 @@ abstract class DateUtility {
     return formatted;
   }
 
-  static Future<VDate?> pickDate(context) async {
+  static Future<VDate?> pickDate(BuildContext context) async {
     DateTime now = DateTime.now();
     final DateTime? picked = await showDatePicker(
       context: context,

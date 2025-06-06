@@ -4,7 +4,10 @@ import '../configs/colors.dart';
 
 abstract class VStyle {
   /// Box shadow with rounded corner
-  static BoxDecoration boxShadow({color = VColor.white, radius = 8.0}) {
+  static BoxDecoration boxShadow({
+    Color color = VColor.white,
+    double radius = 8.0,
+  }) {
     return BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(radius),
@@ -13,8 +16,11 @@ abstract class VStyle {
   }
 
   /// Outline & shadow with rounded corner
-  static BoxDecoration boxShadowOutline(
-      {color = VColor.white, radius = 8.0, borderColor = Colors.grey}) {
+  static BoxDecoration boxShadowOutline({
+    Color color = VColor.white,
+    double radius = 8.0,
+    Color borderColor = Colors.grey,
+  }) {
     return BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(radius),
@@ -24,12 +30,15 @@ abstract class VStyle {
   }
 
   /// Add shadow to container
-  static shadow() {
+  static List<BoxShadow> shadow() {
     return const [BoxShadow(blurRadius: 8.0, color: Colors.black12)];
   }
 
   /// Rounded corner
-  static BoxDecoration corner({radius = 12.0, color}) {
+  static BoxDecoration corner({
+    double radius = 12.0,
+    Color? color,
+  }) {
     return BoxDecoration(
         borderRadius: BorderRadius.circular(radius), color: color);
   }
